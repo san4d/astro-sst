@@ -5,9 +5,10 @@ import type {
   DeploymentStrategy,
 } from "./lib/types.js";
 import { BuildMeta, IntegrationConfig, BuildResult } from "./lib/build-meta.js";
-import { version as ASTRO_VERSION } from "astro/package.json";
+import packageFile from "astro/package.json" assert { type: "json" };
 import { debug } from "./lib/logger.js";
 
+const { version: ASTRO_VERSION } = packageFile;
 const PACKAGE_NAME = "astro-sst";
 const astroMajorVersion = parseInt(ASTRO_VERSION.split(".")[0] ?? 0);
 
